@@ -1,0 +1,20 @@
+name: CI Github Pages
+on:
+  push:
+    branches:
+      - main  # 设置触发构建的分支
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages  # 部署到的分支
+          folder: dist      # 构建后的静态文件目录
