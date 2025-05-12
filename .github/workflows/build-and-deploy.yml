@@ -1,8 +1,6 @@
 name: CI Github Pages
 on:
-  push:
-    branches:
-      - main  # 设置触发构建的分支
+    workflow_dispatch:  # 使用手动触发
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
